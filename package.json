@@ -1,0 +1,33 @@
+{
+  "name": "luggage-shop",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "bunx concurrently --names web,api \"cd apps/web && bun run dev\" \"cd apps/api && bun run dev\"",
+    "build": "bun run build:api && bun run build:web",
+    "build:web": "cd apps/web && bun run build",
+    "build:api": "cd apps/api && bun run build",
+    "typecheck": "bun run typecheck:web && bun run typecheck:api",
+    "typecheck:web": "cd apps/web && bun run typecheck",
+    "typecheck:api": "cd apps/api && bun run typecheck",
+    "lint": "bun run lint:web && bun run lint:api",
+    "lint:web": "cd apps/web && bun run lint",
+    "lint:api": "cd apps/api && bun run lint",
+    "format": "bunx biome format --write .",
+    "clean": "rm -rf apps/*/dist apps/*/.output apps/*/.vinxi apps/*/node_modules packages/*/node_modules node_modules"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@tanstack/router-generator": "^1.139.10",
+    "concurrently": "^9.1.0",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "bun": ">=1.0.0"
+  }
+}
