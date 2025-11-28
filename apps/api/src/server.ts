@@ -78,11 +78,15 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
 });
 
 // Start server - listen on all interfaces (Railway handles networking)
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   logger.info(`🚀 API server running on port ${PORT}`);
   logger.info(`📊 Health check: /health`);
   logger.info(`🔗 CORS enabled for: ${process.env.FRONTEND_URL || 'http://localhost:3000'}`);
 });
+
+// Keep event loop alive for Bun runtime (prevents Railway SIGTERM)
+// Bun doesn't keep event loop alive like Node.js, so we need this
+await new Promise(() => {});
 
 // Graceful shutdown
 process.on('SIGTERM', () => {
