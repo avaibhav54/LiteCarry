@@ -5,4 +5,4 @@ nixPkgs = ['bun']
 cmds = ['bun install']
 
 [start]
-cmd = 'cd apps/api && NODE_ENV=production bun run src/server.ts'
+cmd = './start-api.sh'
