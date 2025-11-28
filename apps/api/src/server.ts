@@ -74,9 +74,9 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
 });
 
 // Start server
-app.listen(PORT, () => {
-  logger.info(`🚀 API server running on http://localhost:${PORT}`);
-  logger.info(`📊 Health check: http://localhost:${PORT}/health`);
+app.listen(PORT, '0.0.0.0', () => {
+  logger.info(`🚀 API server running on http://0.0.0.0:${PORT}`);
+  logger.info(`📊 Health check: http://0.0.0.0:${PORT}/health`);
   logger.info(`🔗 CORS enabled for: ${process.env.FRONTEND_URL || 'http://localhost:3000'}`);
 });
 
