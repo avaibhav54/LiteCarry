@@ -19,6 +19,11 @@ const PORT = process.env.PORT || 3001;
 console.log('DEBUG: process.env.PORT=', process.env.PORT);
 console.log('DEBUG: Using PORT=', PORT);
 
+// Health check - BEFORE middleware to avoid CORS/helmet blocking
+app.get('/health', (req, res) => {
+  res.json({ status: 'healthy', timestamp: new Date().toISOString() });
+});
+
 // Middleware
 app.use(helmet());
 app.use(
@@ -51,11 +56,6 @@ app.use((req, res, next) => {
     res.setHeader('Set-Cookie', cookieString);
   };
   next();
-});
-
-// Health check
-app.get('/health', (req, res) => {
-  res.json({ status: 'healthy', timestamp: new Date().toISOString() });
 });
 
 // API routes
