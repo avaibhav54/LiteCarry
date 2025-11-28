@@ -1,8 +1,8 @@
 [phases.setup]
-nixPkgs = ['bun']
+nixPkgs = ['...', 'bun']
 
 [phases.install]
 cmds = ['bun install']
 
 [start]
-cmd = './start-api.sh'
+cmd = 'cd apps/api && bun run start'

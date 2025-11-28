@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "bun --watch src/server.ts",
-    "build": "bun build src/server.ts --target=node --outdir=dist",
-    "start": "NODE_ENV=production bun run dist/server.js",
+    "build": "echo 'No build step needed for Bun'",
+    "start": "NODE_ENV=production bun run src/server.ts",
     "typecheck": "tsc --noEmit",
     "lint": "bunx biome lint --write src"
   },

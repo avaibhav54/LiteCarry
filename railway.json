@@ -5,10 +5,11 @@
     "nixpacksPath": "nixpacks.toml"
   },
   "deploy": {
+    "startCommand": "cd apps/api && bun run start",
     "numReplicas": 1,
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10,
     "healthcheckPath": "/health",
-    "healthcheckTimeout": 300
+    "healthcheckTimeout": 100
   }
 }
