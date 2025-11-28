@@ -4,8 +4,5 @@ nixPkgs = ['bun']
 [phases.install]
 cmds = ['bun install']
 
-[phases.build]
-cmds = ['cd apps/api && bun build src/server.ts --target=node --outdir=dist']
-
 [start]
-cmd = 'cd apps/api && NODE_ENV=production bun run dist/server.js'
+cmd = 'cd apps/api && NODE_ENV=production bun run src/server.ts'
