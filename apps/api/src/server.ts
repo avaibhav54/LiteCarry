@@ -15,6 +15,10 @@ import ordersRouter from './routes/orders.js';
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Debug: Log what PORT Railway provides
+console.log('DEBUG: process.env.PORT=', process.env.PORT);
+console.log('DEBUG: Using PORT=', PORT);
+
 // Middleware
 app.use(helmet());
 app.use(
