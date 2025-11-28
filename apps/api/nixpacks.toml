@@ -5,4 +5,4 @@ nixPkgs = ['...', 'bun']
 cmds = ['bun install']
 
 [start]
-cmd = 'cd apps/api && bun run start'
+cmd = 'bun run start'
