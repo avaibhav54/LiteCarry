@@ -15,7 +15,7 @@
     "noEmit": true,
     "types": ["vite/client"],
     "paths": {
-      "~/.*": ["./app/*"],
+      "~/*": ["./src/*"],
       "@luggage/shared-types": ["../../packages/shared-types/src/index.ts"]
     }
   },

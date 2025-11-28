@@ -20,8 +20,8 @@ COPY apps/api/ ./apps/api/
 # Set working directory to API
 WORKDIR /app/apps/api
 
-# Expose port
-EXPOSE 3001
+# Expose port (Railway will override with $PORT)
+EXPOSE 8080
 
 # Start the server
 CMD ["bun", "run", "start"]
