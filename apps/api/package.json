@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "bun --watch src/server.ts",
     "build": "echo 'No build step needed for Bun'",
-    "start": "NODE_ENV=production bun run src/server.ts",
+    "start": "NODE_ENV=production bun src/server.ts",
     "typecheck": "tsc --noEmit",
     "lint": "bunx biome lint --write src"
   },
