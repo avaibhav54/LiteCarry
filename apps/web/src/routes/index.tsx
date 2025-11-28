@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { useQuery } from '@tanstack/react-query';
+import { API_URL } from '~/lib/config';
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -19,7 +20,7 @@ function Index() {
   const { data: products, isLoading } = useQuery<Product[]>({
     queryKey: ['products'],
     queryFn: async () => {
-      const res = await fetch('http://localhost:3001/api/v1/products');
+      const res = await fetch(`${API_URL}/api/v1/products`);
       const json = await res.json();
       return json.data || json;
     },
