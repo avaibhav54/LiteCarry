@@ -77,10 +77,10 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
   res.status(500).json({ error: 'Internal server error' });
 });
 
-// Start server
-app.listen(PORT, '0.0.0.0', () => {
-  logger.info(`🚀 API server running on http://0.0.0.0:${PORT}`);
-  logger.info(`📊 Health check: http://0.0.0.0:${PORT}/health`);
+// Start server - listen on all interfaces (Railway handles networking)
+app.listen(PORT, () => {
+  logger.info(`🚀 API server running on port ${PORT}`);
+  logger.info(`📊 Health check: /health`);
   logger.info(`🔗 CORS enabled for: ${process.env.FRONTEND_URL || 'http://localhost:3000'}`);
 });
 
